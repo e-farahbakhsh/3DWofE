@@ -5,7 +5,7 @@ import csv
 import itertools
 import math
 
-# Number of the evidential models
+# Number of evidential models
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
 for row in input_reader:
