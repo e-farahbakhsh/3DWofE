@@ -17,4 +17,4 @@ Bonham-Carter, G. F., 1994, Geographic Information Systems for Geoscientists: Mo
 
 Carranza, E. J. M., 2004, Weights of evidence modeling of mineral potential: a case study using small number of prospects, Abra, Philippines, Natural Resources Research, 13, 173–187
 
-Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., [Under Review] Application of three-dimensional weights of evidence in modeling concealed ore deposits
+Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., Application of three-dimensional weights of evidence in modeling concealed ore deposits [Under Review]
