@@ -6,7 +6,7 @@ import itertools
 import math
 import numpy
 
-# Number of the evidential models
+# Number of evidential models
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
 for row in input_reader:
@@ -15,7 +15,7 @@ for row in input_reader:
 del input_file
 del input_reader
 
-# Calculating mean and standard deviation of the target element
+# Mean and standard deviation of the target element
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
 col_temp = []
@@ -26,7 +26,7 @@ del input_reader
 mean_target = numpy.mean(col_temp)
 std_target = numpy.std(col_temp)
 
-# Calculating standard deviation of the evidential models
+# Standard deviation of evidential models
 col_temp = []
 mean_fac = []
 std_fac = []
@@ -48,7 +48,7 @@ for i in list(numpy.arange(0, 5.5, 0.5)): # Replace with your desired range
 
 num_class = len(thresholds_target)
 
-# Threshold values for the evidential models
+# Threshold values for evidential models
 output_file = open("D:/Thresholds.csv", "wb")
 output_writer = csv.writer(output_file)
 thresholds_fac_temp = []
@@ -60,7 +60,7 @@ for i in list(numpy.arange(0, 5.5, 0.5)): # Replace with your desired range
 del output_file
 del output_writer
 
-# Calculating the number of voxels for different items
+# Number of voxels for different items
 # NumT: total number of voxels
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
@@ -104,7 +104,7 @@ del output_file
 del output_writer
 
 # NumBD: number of intersected mineralization-bearing voxels and anomalous voxels of evidential models
-# "_abs" means in the absence of the last character before "_"
+# "_abs" means in the absence of the last parameter before underscore
 output1_file = open("D:/NumBD.csv", "wb")
 output1_writer = csv.writer(output1_file)
 output2_file = open("D:/NumB_absD.csv", "wb")
@@ -154,7 +154,7 @@ del output3_writer
 del output4_file
 del output4_writer
 
-# Calculating required probabilities, odds and logits
+# Required probabilities, odds and logits
 input_file = open("D:/NumBD.csv")
 input_reader = csv.reader(input_file)
 output_file = open("D:/ProBD.csv", "wb")
@@ -353,7 +353,7 @@ del input_reader
 del output_file
 del output_writer
 
-# Calculating the contrast
+# Contrast
 input1_file = open("D:/W_pos.csv")
 input1_reader = csv.reader(input1_file)
 input2_file = open("D:/W_neg.csv")
@@ -376,7 +376,7 @@ del input2_reader
 del output_file
 del output_writer
 
-# Calculating variance and standard deviation of the positive and negative weights
+# Variance and standard deviation of the positive and negative weights
 input1_file = open("D:/NumBD.csv")
 input1_reader = csv.reader(input1_file)
 input2_file = open("D:/NumBD_abs.csv")
@@ -439,7 +439,7 @@ del output1_writer
 del output2_file
 del output2_writer
 
-# Calculating variance and standard deviation of the contrasts
+# Variance and standard deviation of the contrasts
 input1_file = open("D:/Var_W_pos.csv")
 input1_reader = csv.reader(input1_file)
 input2_file = open("D:/Var_W_neg.csv")
@@ -471,7 +471,7 @@ del output1_writer
 del output2_file
 del output2_writer
 
-# Calculating the studentized contrast
+# Studentized contrast
 input1_file = open("D:/Contrast.csv")
 input1_reader = csv.reader(input1_file)
 input2_file = open("D:/StD_Contrast.csv")

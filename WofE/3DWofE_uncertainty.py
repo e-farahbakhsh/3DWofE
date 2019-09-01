@@ -7,16 +7,14 @@ import math
 
 # Threshold value for the target element
 threshold = 0.4 # Replace with your desired number
-# A list of threshold values for the evidential models with respect to the input csv file
+# A list of threshold values for evidential models with respect to the input csv file
 thresholds = [] # Fill the list with your desired numbers
-# A list of the variances calculated for the positive weights of the evidential models with respect to the
-# input csv file
+# A list of the variances calculated for the positive weights of evidential models with respect to the input csv file
 var_w_pos = [] # Fill the list with your desired numbers
-# A list of the variances calculated for the negative weights of the evidential models with respect to the
-# input csv file
+# A list of the variances calculated for the negative weights of evidential models with respect to the input csv file
 var_w_neg = [] # Fill the list with your desired numbers
 
-# Calculating the variance of each voxel in the evidential models
+# Variance of each voxel in evidential models
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
 output_file = open("D:/Variance.csv", "wb")
@@ -38,7 +36,7 @@ del input_reader
 del output_file
 del output_writer
 
-# Calculating the total variance/uncertainty of each voxel
+# Total variance/uncertainty of each voxel
 input_file = open("D:/Variance.csv")
 input_reader = csv.reader(input_file)
 output_file = open("D:/Total Variance.csv", "wb")
@@ -57,7 +55,7 @@ del input_reader
 del output_file
 del output_writer
 
-# Calculating the studentized posterior probability
+# Studentized posterior probability
 input1_file = open("D:/Posterior Probability.csv")
 input1_reader = csv.reader(input1_file)
 input2_file = open("D:/Total Variance.csv")
