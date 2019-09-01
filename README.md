@@ -1,7 +1,7 @@
 # 3D_MPM
 3D Mineral Prospectivity Modeling
 
-![Models](https://drive.google.com/file/d/1nmZ-r1zNrcc8PZu8dSnQHS9IW-ShcScG/view?usp=sharing)
+![Models](https://drive.google.com/drive/u/0/folders/1jGkM2BBjtxtcGH3PRwmJXkl0hNz8wqNM)
 
 ## Introduction
 This repository contains the scripts which are used for 3D mineral prospectivity modeling.
