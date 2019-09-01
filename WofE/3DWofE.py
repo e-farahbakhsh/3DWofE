@@ -4,7 +4,7 @@
 import csv
 import math
 
-# Calculating the number of voxels for different items
+# Calculating number of voxels for different items
 # NumT: total number of voxels
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
