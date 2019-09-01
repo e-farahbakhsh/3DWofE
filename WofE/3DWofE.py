@@ -55,7 +55,7 @@ ProBD = []
 for n in NumBD:
     ProBD.append(n/NumD)
 
-# "_abs" means in the absence of the last character before "_"
+# "_abs" means in the absence of the last parameter before underscore
 ProBD_abs = []
 i = 0
 for n in NumB:
