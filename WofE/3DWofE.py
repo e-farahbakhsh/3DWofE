@@ -4,7 +4,7 @@
 import csv
 import math
 
-# Calculating number of voxels for different items
+# Number of voxels for different items
 # NumT: total number of voxels
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
@@ -50,7 +50,7 @@ for row in input_reader:
 del input_file
 del input_reader
 
-# Calculating required probabilities, odds and logits
+# Required probabilities, odds and logits
 ProBD = []
 for n in NumBD:
     ProBD.append(n/NumD)
