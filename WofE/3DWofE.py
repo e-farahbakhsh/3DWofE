@@ -6,7 +6,7 @@ import math
 
 # Calculating the number of voxels for different items
 # NumT: total number of voxels
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input.csv")
+input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
 NumT = 0
 for row in input_reader:
@@ -16,9 +16,9 @@ del input_reader
 NumT = float(NumT)
 
 # NumD: number of known mineralization-bearing voxels
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input.csv")
+input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
-threshold = 0.450155049344027
+threshold = 0.4 # Replace with your desired number
 NumD = 0
 for row in input_reader:
     if float(row[3]) > threshold:
@@ -28,10 +28,9 @@ del input_reader
 NumD = float(NumD)
 
 # NumB: number of anomalous voxels in evidential models
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input.csv")
+input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
-thresholds = [259.936009793948, 2512.98662759983, 81673.5773442212, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
-              0.5, 0.5, 0.5, 0.5]
+thresholds = [] # Fill this list with your desired numbers
 NumB = [0]*len(thresholds)
 for row in input_reader:
     for i in range(len(thresholds)):
@@ -41,7 +40,7 @@ del input_file
 del input_reader
 
 # NumBD: number of intersected mineralization-bearing voxels and anomalous voxels of evidential models
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input.csv")
+input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
 NumBD = [0]*len(thresholds)
 for row in input_reader:
@@ -124,9 +123,9 @@ for i in post_o_DB_abs:
     post_p_DB_abs.append(i/1+i)
 
 # Combining evidential models
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input.csv")
+input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Weights.csv", "wb")
+output_file = open("D:/Weights.csv", "wb")
 output_writer = csv.writer(output_file)
 row_temp = []
 for row in input_reader:
@@ -145,9 +144,9 @@ del input_reader
 del output_file
 del output_writer
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Weights.csv")
+input_file = open("D:/Weights.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Logit.csv", "wb")
+output_file = open("D:/Posterior Logit.csv", "wb")
 output_writer = csv.writer(output_file)
 row_temp = []
 for row in input_reader:
@@ -163,9 +162,9 @@ del input_reader
 del output_file
 del output_writer
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Logit.csv")
+input_file = open("D:/Posterior Logit.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Odds.csv", "wb")
+output_file = open("D:/Posterior Odds.csv", "wb")
 output_writer = csv.writer(output_file)
 row_temp = []
 for row in input_reader:
@@ -180,9 +179,9 @@ del input_reader
 del output_file
 del output_writer
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Odds.csv")
+input_file = open("D:/Posterior Odds.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Probability.csv", "wb")
+output_file = open("D:/Posterior Probability.csv", "wb")
 output_writer = csv.writer(output_file)
 row_temp = []
 for row in input_reader:
@@ -198,7 +197,7 @@ del output_file
 del output_writer
 
 # Overall test of conditional independence
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Probability.csv")
+input_file = open("D:/Posterior Probability.csv")
 input_reader = csv.reader(input_file)
 list_temp = []
 for row in input_reader:
