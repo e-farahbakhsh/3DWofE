@@ -55,7 +55,7 @@ del output_file
 del output_writer
 
 # NumBD: number of intersected mineralization-bearing voxels and anomalous voxels of evidential models
-# "_abs" means in the absence of the last character before underscore
+# "_abs" means in the absence of the last parameter before underscore
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
 output1_file = open("D:/NumBD.csv", "wb")
