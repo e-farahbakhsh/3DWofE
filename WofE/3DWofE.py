@@ -30,7 +30,7 @@ NumD = float(NumD)
 # NumB: number of anomalous voxels in evidential models
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
-thresholds = [] # Fill this list with your desired numbers
+thresholds = [] # Fill the list with your desired numbers
 NumB = [0]*len(thresholds)
 for row in input_reader:
     for i in range(len(thresholds)):
