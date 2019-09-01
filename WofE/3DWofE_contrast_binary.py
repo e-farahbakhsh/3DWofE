@@ -18,7 +18,7 @@ del input_reader
 threshold_target = 0.4 # Replace with your desired number
 threshold_fac = 0.5 # Replace with your desired number
 
-# Calculating the number of voxels for different items
+# Number of voxels for different items
 # NumT: total number of voxels
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
@@ -55,7 +55,7 @@ del output_file
 del output_writer
 
 # NumBD: number of intersected mineralization-bearing voxels and anomalous voxels of evidential models
-# "_abs" means in the absence of the last character before "_"
+# "_abs" means in the absence of the last character before underscore
 input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
 output1_file = open("D:/NumBD.csv", "wb")
@@ -95,7 +95,7 @@ del output3_writer
 del output4_file
 del output4_writer
 
-# Calculating required probabilities, odds and logits
+# Required probabilities, odds and logits
 input_file = open("D:/NumBD.csv")
 input_reader = csv.reader(input_file)
 output_file = open("D:/ProBD.csv", "wb")
@@ -246,7 +246,7 @@ del input_reader
 del output_file
 del output_writer
 
-# Calculating the contrast
+# Contrast
 input1_file = open("D:/W_pos.csv")
 input1_reader = csv.reader(input1_file)
 input2_file = open("D:/W_neg.csv")
@@ -269,7 +269,7 @@ del input2_reader
 del output_file
 del output_writer
 
-# Calculating variance and standard deviation of the positive and negative weights
+# Variance and standard deviation of the positive and negative weights
 input1_file = open("D:/NumBD.csv")
 input1_reader = csv.reader(input1_file)
 input2_file = open("D:/NumBD_abs.csv")
@@ -332,7 +332,7 @@ del output1_writer
 del output2_file
 del output2_writer
 
-# Calculating variance and standard deviation of the contrasts
+# Variance and standard deviation of the contrasts
 input1_file = open("D:/Var_W_pos.csv")
 input1_reader = csv.reader(input1_file)
 input2_file = open("D:/Var_W_neg.csv")
@@ -364,7 +364,7 @@ del output1_writer
 del output2_file
 del output2_writer
 
-# Calculating the studentized contrast
+# Studentized contrast
 input1_file = open("D:/Contrast.csv")
 input1_reader = csv.reader(input1_file)
 input2_file = open("D:/StD_Contrast.csv")
