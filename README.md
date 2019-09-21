@@ -1,6 +1,8 @@
 # 3D_MPM
 3D Mineral Prospectivity Modeling
 
+[![DOI](https://zenodo.org/badge/118207344.svg)](https://zenodo.org/badge/latestdoi/118207344)
+
 ![Models](https://github.com/e-farahbakhsh/3D_MPM/blob/master/WofE/Example%20models.png)
 
 ## Introduction
