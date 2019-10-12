@@ -1,7 +1,7 @@
 # 3D_MPM
 3D Mineral Prospectivity Modeling
 
-[![DOI](https://zenodo.org/badge/118207344.svg)](https://zenodo.org/badge/latestdoi/118207344)
+[![DOI](https://zenodo.org/badge/205634309.svg)](https://zenodo.org/badge/latestdoi/205634309)
 
 ![Models](https://github.com/e-farahbakhsh/3D_MPM/blob/master/WofE/Example%20models.png)
 
@@ -19,4 +19,4 @@ Bonham-Carter, G. F., 1994, Geographic Information Systems for Geoscientists: Mo
 
 Carranza, E. J. M., 2004, Weights of evidence modeling of mineral potential: a case study using small number of prospects, Abra, Philippines, Natural Resources Research, 13, 173–187
 
-Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., Application of three-dimensional weights of evidence in modeling concealed ore deposits [Under Review]
+Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., Application of three-dimensional weights of evidence in modeling concealed ore deposits: Case study of a porphyry Cu deposit in the Urmia-Dokhtar magmatic belt of Iran [Under Review]
