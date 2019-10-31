@@ -21,4 +21,4 @@ Carranza, E. J. M., 2004, Weights of evidence modeling of mineral potential: a c
 
 Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., 2019a, Application of three-dimensional weights of evidence in modeling concealed ore deposits: Case study of a porphyry Cu deposit in the Urmia-Dokhtar magmatic belt of Iran [Under Review]
 
-Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., 2019b, Extending the weights of evidence method for integrating geological, structural and geochemical data and modeling a concealed porphyry Cu deposit [Under Review]
+Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., 2019b, Extending the weights of evidence method for integrating geological, structural and geochemical data: Case study of a porphyry Cu deposit in Iran [Under Review]
