@@ -7,23 +7,23 @@ import math
 import pandas
 
 # Determining the positive or negative weight of each voxel in binary models
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Binary_W_pos.csv")
+input_file = open("D:/Binary_W_pos.csv")
 input_reader = csv.reader(input_file)
 for row in input_reader:
     binary_w_pos = row
 del input_file
 del input_reader
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Binary_W_neg.csv")
+input_file = open("D:/Binary_W_neg.csv")
 input_reader = csv.reader(input_file)
 for row in input_reader:
     binary_w_neg = row
 del input_file
 del input_reader
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input_Binary.csv")
+input_file = open("D:/Input_Binary.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Weights_Binary.csv", "wb")
+output_file = open("D:/Weights_Binary.csv", "wb")
 output_writer = csv.writer(output_file)
 weights_binary_temp = []
 for row in input_reader:
@@ -43,7 +43,7 @@ del output_file
 del output_writer
 
 # Determining the fuzzy weight of each voxel in continuous models
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input_Continuous.csv")
+input_file = open("D:/Input_Continuous.csv")
 input_reader = csv.reader(input_file)
 for row in input_reader:
     num_fac = len(row)-4
@@ -54,16 +54,16 @@ del input_reader
 thresholds_continuous = []
 fuzzyWeight = []
 for i in range(num_fac):
-    df1 = pandas.read_csv("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Thresholds_Continuous.csv", header=None, usecols=[i])
+    df1 = pandas.read_csv("D:/Thresholds_Continuous.csv", header=None, usecols=[i])
     thresholds_continuous_temp = df1[i].values.tolist()
-    df2 = pandas.read_csv("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Fuzzy Weight.csv", header=None, usecols=[i])
+    df2 = pandas.read_csv("D:/Fuzzy Weight.csv", header=None, usecols=[i])
     fuzzyWeight_temp = df2[i].values.tolist()
     thresholds_continuous.append(thresholds_continuous_temp)
     fuzzyWeight.append(fuzzyWeight_temp)
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input_Continuous.csv")
+input_file = open("D:/Input_Continuous.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Weights_Continuous.csv", "wb")
+output_file = open("D:/Weights_Continuous.csv", "wb")
 output_writer = csv.writer(output_file)
 weights_continuous_temp = []
 for row in input_reader:
@@ -96,7 +96,7 @@ del output_writer
 
 # Calculating the posterior probability
 # NumT: total number of voxels
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input_Continuous.csv")
+input_file = open("D:/Input_Continuous.csv")
 input_reader = csv.reader(input_file)
 NumT = 0
 for row in input_reader:
@@ -106,7 +106,7 @@ del input_reader
 NumT = float(NumT)
 
 # NumD: number of known mineralization-bearing voxels
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input_Continuous.csv")
+input_file = open("D:/Input_Continuous.csv")
 input_reader = csv.reader(input_file)
 threshold = 0.4
 NumD = 0
@@ -121,11 +121,11 @@ prior_p = NumD/NumT
 prior_o = prior_p/(1-prior_p)
 prior_l = math.log(prior_o)
 
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Weights_Binary.csv")
+input1_file = open("D:/Weights_Binary.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Weights_Continuous.csv")
+input2_file = open("D:/Weights_Continuous.csv")
 input2_reader = csv.reader(input2_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Logit.csv", "wb")
+output_file = open("D:/Posterior Logit.csv", "wb")
 output_writer = csv.writer(output_file)
 posterior_logit_temp = []
 for row1, row2 in itertools.izip(input1_reader, input2_reader):
@@ -144,9 +144,9 @@ del input2_reader
 del output_file
 del output_writer
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Logit.csv")
+input_file = open("D:/Posterior Logit.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Odds.csv", "wb")
+output_file = open("D:/Posterior Odds.csv", "wb")
 output_writer = csv.writer(output_file)
 posterior_odds_temp = []
 for row in input_reader:
@@ -161,9 +161,9 @@ del input_reader
 del output_file
 del output_writer
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Odds.csv")
+input_file = open("D:/Posterior Odds.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Probability.csv", "wb")
+output_file = open("D:/Posterior Probability.csv", "wb")
 output_writer = csv.writer(output_file)
 posterior_probability_temp = []
 for row in input_reader:
