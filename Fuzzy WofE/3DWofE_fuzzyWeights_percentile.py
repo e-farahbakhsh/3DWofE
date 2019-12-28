@@ -9,7 +9,7 @@ import pandas
 import tqdm
 
 # Number of factors
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Input.csv")
+input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
 for row in input_reader:
     num_fac = len(row)-4
@@ -18,24 +18,23 @@ del input_file
 del input_reader
 
 # Min and max of the target element
-# input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Input.csv")
-# input_reader = csv.reader(input_file)
-# col_temp = []
-# for row in input_reader:
-#     col_temp.append(float(row[3]))
-# del input_file
-# del input_reader
-# min_target = min(col_temp)
-# max_target = max(col_temp)
+input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Input.csv")
+input_reader = csv.reader(input_file)
+col_temp = []
+for row in input_reader:
+    col_temp.append(float(row[3]))
+del input_file
+del input_reader
+min_target = min(col_temp)
+max_target = max(col_temp)
 
 # Threshold values for the target element
 # The number of classes are considered to be 10 here
 num_class = 10
-# increment_target = (max_target-min_target)/num_class
-# thresholds_target = []
-# for i in range(1, num_class):
-#     thresholds_target.append(min_target+(i*increment_target))
-thresholds_target = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+increment_target = (max_target-min_target)/num_class
+thresholds_target = []
+for i in range(1, num_class):
+    thresholds_target.append(min_target+(i*increment_target))
 
 # Thresholds for different factors
 percentile = []
@@ -45,7 +44,7 @@ for i in range(num_class-1):
 thresholds_temp = []
 thresholds = []
 for i in range(num_fac):
-    df = pandas.read_csv("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Input.csv", header=None, usecols=[i+4])
+    df = pandas.read_csv("D:/Input.csv", header=None, usecols=[i+4])
     input_temp = df[i+4].values.tolist()
     for p in percentile:
         thresholds_temp.append(numpy.percentile(input_temp, p))
@@ -53,14 +52,14 @@ for i in range(num_fac):
     thresholds_temp = []
 
 thresholds_col = zip(*thresholds)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Thresholds.csv", "wb")
+output_file = open("D:/Thresholds.csv", "wb")
 output_writer = csv.writer(output_file)
 output_writer.writerows(thresholds_col)
 del output_file
 del output_writer
 
 # Calculating number of cells for different items
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Input.csv")
+input_file = open("D:/Input.csv")
 input_reader = csv.reader(input_file)
 NumT = 0
 for row in input_reader:
@@ -70,7 +69,7 @@ del input_reader
 
 NumD = [0]*(num_class-1)
 for i in range(num_class-1):
-    input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Input.csv")
+    input_file = open("D:/Input.csv")
     input_reader = csv.reader(input_file)
     for row in input_reader:
         if float(row[3]) > thresholds_target[i]:
@@ -78,15 +77,13 @@ for i in range(num_class-1):
 del input_file
 del input_reader
 
-# output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB_Row.csv", "wb")
-# output_writer = csv.writer(output_file)
 NumB = []
 NumB_temp = [0]*num_class
 for i in tqdm.tqdm(range(num_fac), desc="Factors"):
-    df = pandas.read_csv("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Thresholds.csv", header=None, usecols=[i])
+    df = pandas.read_csv("D:/Thresholds.csv", header=None, usecols=[i])
     thresholds_temp = df[i].values.tolist()
     for j in range(num_class-1):
-        input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Input.csv")
+        input_file = open("D:/Input.csv")
         input_reader = csv.reader(input_file)
         for row in input_reader:
             if j == 0:
@@ -101,31 +98,12 @@ for i in tqdm.tqdm(range(num_fac), desc="Factors"):
                 if thresholds_temp[j-1] < float(row[i+4]) <= thresholds_temp[j]:
                     NumB_temp[j] += 1
     NumB.append(NumB_temp)
-    # output_writer.writerow(NumB_temp)
     NumB_temp = [0]*num_class
 del input_file
 del input_reader
-# del output_file
-# del output_writer
 
-# output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB.csv", "wb")
-# output_writer = csv.writer(output_file)
-# NumB_temp = []
-# for i in range(num_class):
-#     input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB_Row.csv")
-#     input_reader = csv.reader(input_file)
-#     for row in input_reader:
-#         NumB_temp.append(row[i])
-#     output_writer.writerow(NumB_temp)
-#     NumB_temp = []
-# del input_file
-# del input_reader
-# del output_file
-# del output_writer
-
-# NumB_temp = itertools.izip(*csv.reader(open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB_Row.csv", "rb")))
 NumB_col = zip(*NumB)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB.csv", "wb")
+output_file = open("D:/NumB.csv", "wb")
 output_writer = csv.writer(output_file)
 output_writer.writerows(NumB_col)
 del output_file
@@ -141,10 +119,10 @@ NumBD_abs_temp = [0]*num_class
 NumB_absD_abs_temp = [0]*num_class
 for threshold in tqdm.tqdm(thresholds_target, desc="Target thresholds"):
     for i in range(num_fac):
-        df = pandas.read_csv("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Thresholds.csv", header=None, usecols=[i])
+        df = pandas.read_csv("D:/Thresholds.csv", header=None, usecols=[i])
         thresholds_temp = df[i].values.tolist()
         for j in range(num_class-1):
-            input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Input.csv")
+            input_file = open("D:/Input.csv")
             input_reader = csv.reader(input_file)
             for row in input_reader:
                 if j == 0:
@@ -215,7 +193,7 @@ for threshold in tqdm.tqdm(thresholds_target, desc="Target thresholds"):
 del input_file
 del input_reader
 
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumBD.csv", "wb")
+output_file = open("D:/NumBD.csv", "wb")
 output_writer = csv.writer(output_file)
 NumBD_temp = []
 for i in range(num_class-1):
@@ -227,7 +205,7 @@ for i in range(num_class-1):
 del output_file
 del output_writer
 
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB_absD.csv", "wb")
+output_file = open("D:/NumB_absD.csv", "wb")
 output_writer = csv.writer(output_file)
 NumB_absD_temp = []
 for i in range(num_class-1):
@@ -239,7 +217,7 @@ for i in range(num_class-1):
 del output_file
 del output_writer
 
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumBD_abs.csv", "wb")
+output_file = open("D:/NumBD_abs.csv", "wb")
 output_writer = csv.writer(output_file)
 NumBD_abs_temp = []
 for i in range(num_class-1):
@@ -251,7 +229,7 @@ for i in range(num_class-1):
 del output_file
 del output_writer
 
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB_absD_abs.csv", "wb")
+output_file = open("D:/NumB_absD_abs.csv", "wb")
 output_writer = csv.writer(output_file)
 NumB_absD_abs_temp = []
 for i in range(num_class-1):
@@ -264,9 +242,9 @@ del output_file
 del output_writer
 
 # Calculating required probabilities, odds and logits
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumBD.csv")
+input_file = open("D:/NumBD.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProBD.csv", "wb")
+output_file = open("D:/ProBD.csv", "wb")
 output_writer = csv.writer(output_file)
 ProBD_temp = []
 i = 1
@@ -288,11 +266,11 @@ del input_reader
 del output_file
 del output_writer
 
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB_Copied.csv", "wb")
+output_file = open("D:/NumB_Copied.csv", "wb")
 output_writer = csv.writer(output_file)
 i = 1
 while i < num_class:
-    input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB.csv")
+    input_file = open("D:/NumB.csv")
     input_reader = csv.reader(input_file)
     for row in input_reader:
         output_writer.writerow(row)
@@ -302,11 +280,11 @@ del input_reader
 del output_file
 del output_writer
 
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB_Copied.csv")
+input1_file = open("D:/NumB_Copied.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumBD.csv")
+input2_file = open("D:/NumBD.csv")
 input2_reader = csv.reader(input2_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProBD_abs.csv", "wb")
+output_file = open("D:/ProBD_abs.csv", "wb")
 output_writer = csv.writer(output_file)
 ProBD_abs_temp = []
 i = 1
@@ -330,9 +308,9 @@ del input2_reader
 del output_file
 del output_writer
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumBD.csv")
+input_file = open("D:/NumBD.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProB_absD.csv", "wb")
+output_file = open("D:/ProB_absD.csv", "wb")
 output_writer = csv.writer(output_file)
 ProB_absD_temp = []
 i = 1
@@ -354,11 +332,11 @@ del input_reader
 del output_file
 del output_writer
 
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB_Copied.csv")
+input1_file = open("D:/NumB_Copied.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumBD.csv")
+input2_file = open("D:/NumBD.csv")
 input2_reader = csv.reader(input2_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProB_absD_abs.csv", "wb")
+output_file = open("D:/ProB_absD_abs.csv", "wb")
 output_writer = csv.writer(output_file)
 ProB_absD_abs_temp = []
 i = 1
@@ -382,11 +360,11 @@ del input2_reader
 del output_file
 del output_writer
 
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProBD.csv")
+input1_file = open("D:/ProBD.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProBD_abs.csv")
+input2_file = open("D:/ProBD_abs.csv")
 input2_reader = csv.reader(input2_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/LS.csv", "wb")
+output_file = open("D:/LS.csv", "wb")
 output_writer = csv.writer(output_file)
 LS_temp = []
 for row1, row2 in itertools.izip(input1_reader, input2_reader):
@@ -404,9 +382,9 @@ del input2_reader
 del output_file
 del output_writer
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/LS.csv")
+input_file = open("D:/LS.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/W_pos.csv", "wb")
+output_file = open("D:/W_pos.csv", "wb")
 output_writer = csv.writer(output_file)
 W_pos_temp = []
 for row in input_reader:
@@ -422,11 +400,11 @@ del input_reader
 del output_file
 del output_writer
 
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProB_absD.csv")
+input1_file = open("D:/ProB_absD.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProB_absD_abs.csv")
+input2_file = open("D:/ProB_absD_abs.csv")
 input2_reader = csv.reader(input2_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/LN.csv", "wb")
+output_file = open("D:/LN.csv", "wb")
 output_writer = csv.writer(output_file)
 LN_temp = []
 for row1, row2 in itertools.izip(input1_reader, input2_reader):
@@ -444,9 +422,9 @@ del input2_reader
 del output_file
 del output_writer
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/LN.csv")
+input_file = open("D:/LN.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/W_neg.csv", "wb")
+output_file = open("D:/W_neg.csv", "wb")
 output_writer = csv.writer(output_file)
 W_neg_temp = []
 for row in input_reader:
@@ -463,11 +441,11 @@ del output_file
 del output_writer
 
 # Calculating contrast
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/W_pos.csv")
+input1_file = open("D:/W_pos.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/W_neg.csv")
+input2_file = open("D:/W_neg.csv")
 input2_reader = csv.reader(input2_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Contrast.csv", "wb")
+output_file = open("D:/Contrast.csv", "wb")
 output_writer = csv.writer(output_file)
 contrast_temp = []
 for row1, row2 in itertools.izip(input1_reader, input2_reader):
@@ -486,13 +464,13 @@ del output_file
 del output_writer
 
 # Calculating variance and standard deviation of positive and negative weights
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumBD.csv")
+input1_file = open("D:/NumBD.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumBD_abs.csv")
+input2_file = open("D:/NumBD_abs.csv")
 input2_reader = csv.reader(input2_file)
-output1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Var_W_pos.csv", "wb")
+output1_file = open("D:/Var_W_pos.csv", "wb")
 output1_writer = csv.writer(output1_file)
-output2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/StD_W_pos.csv", "wb")
+output2_file = open("D:/StD_W_pos.csv", "wb")
 output2_writer = csv.writer(output2_file)
 var_w_pos_temp = []
 std_w_pos_temp = []
@@ -517,13 +495,13 @@ del output1_writer
 del output2_file
 del output2_writer
 
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB_absD.csv")
+input1_file = open("D:/NumB_absD.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/NumB_absD_abs.csv")
+input2_file = open("D:/NumB_absD_abs.csv")
 input2_reader = csv.reader(input2_file)
-output1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Var_W_neg.csv", "wb")
+output1_file = open("D:/Var_W_neg.csv", "wb")
 output1_writer = csv.writer(output1_file)
-output2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/StD_W_neg.csv", "wb")
+output2_file = open("D:/StD_W_neg.csv", "wb")
 output2_writer = csv.writer(output2_file)
 var_w_neg_temp = []
 std_w_neg_temp = []
@@ -549,13 +527,13 @@ del output2_file
 del output2_writer
 
 # Calculating variance and standard deviation of contrasts
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Var_W_pos.csv")
+input1_file = open("D:/Var_W_pos.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Var_W_neg.csv")
+input2_file = open("D:/Var_W_neg.csv")
 input2_reader = csv.reader(input2_file)
-output1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Var_Contrast.csv", "wb")
+output1_file = open("D:/Var_Contrast.csv", "wb")
 output1_writer = csv.writer(output1_file)
-output2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/StD_Contrast.csv", "wb")
+output2_file = open("D:/StD_Contrast.csv", "wb")
 output2_writer = csv.writer(output2_file)
 var_contrast_temp = []
 std_contrast_temp = []
@@ -581,11 +559,11 @@ del output2_file
 del output2_writer
 
 # Calculating studentized contrast
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Contrast.csv")
+input1_file = open("D:/Contrast.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/StD_Contrast.csv")
+input2_file = open("D:/StD_Contrast.csv")
 input2_reader = csv.reader(input2_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Contrast_Studentized.csv", "wb")
+output_file = open("D:/Contrast_Studentized.csv", "wb")
 output_writer = csv.writer(output_file)
 contrast_stu_temp = []
 for row1, row2 in itertools.izip(input1_reader, input2_reader):
@@ -608,7 +586,7 @@ contrast2_temp = []
 fuzzyContrast_temp = []
 fuzzyContrast = []
 for i in range(num_fac):
-    df = pandas.read_csv("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Contrast.csv", header=None, usecols=[i])
+    df = pandas.read_csv("D:/Contrast.csv", header=None, usecols=[i])
     contrast_temp = df[i].values.tolist()
     for j in range(num_class-1):
         contrast1_temp = (contrast_temp[j*num_class:((j*num_class)+num_class)])
@@ -639,7 +617,7 @@ for i in range(num_fac):
             contrast1_temp = []
             fuzzyContrast_temp = []
 
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Fuzzy Contrast.csv", "wb")
+output_file = open("D:/Fuzzy Contrast.csv", "wb")
 output_writer = csv.writer(output_file)
 fuzzyContrast_temp = []
 for i in range(num_class-1):
@@ -652,17 +630,17 @@ del output_file
 del output_writer
 
 # Calculating fuzzy weight
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Fuzzy Contrast.csv")
+input1_file = open("D:/Fuzzy Contrast.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProBD.csv")
+input2_file = open("D:/ProBD.csv")
 input2_reader = csv.reader(input2_file)
-input3_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProB_absD.csv")
+input3_file = open("D:/ProB_absD.csv")
 input3_reader = csv.reader(input3_file)
-input4_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProBD_abs.csv")
+input4_file = open("D:/ProBD_abs.csv")
 input4_reader = csv.reader(input4_file)
-input5_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/ProB_absD_abs.csv")
+input5_file = open("D:/ProB_absD_abs.csv")
 input5_reader = csv.reader(input5_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Contrast/Fuzzy Weight.csv", "wb")
+output_file = open("D:/Fuzzy Weight.csv", "wb")
 output_writer = csv.writer(output_file)
 fuzzyWeight_temp = []
 for row1, row2, row3, row4, row5 in itertools.izip(input1_reader, input2_reader, input3_reader, input4_reader, input5_reader):
