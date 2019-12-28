@@ -10,7 +10,7 @@ import pandas
 threshold = 0.4
 
 # Creating a variance list of positive weights for binary models
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Uncertainty/Binary_Var_W_pos.csv")
+input_file = open("D:/Binary_Var_W_pos.csv")
 input_reader = csv.reader(input_file)
 for row in input_reader:
     binary_var_w_pos = row
@@ -18,16 +18,16 @@ del input_file
 del input_reader
 
 # Creating a variance list of negative weights for binary models
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Uncertainty/Binary_Var_W_neg.csv")
+input_file = open("D:/Binary_Var_W_neg.csv")
 input_reader = csv.reader(input_file)
 for row in input_reader:
     binary_var_w_neg = row
 del input_file
 del input_reader
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input_Binary.csv")
+input_file = open("D:/Input_Binary.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Uncertainty/Variance_Binary.csv", "wb")
+output_file = open("D:/Variance_Binary.csv", "wb")
 output_writer = csv.writer(output_file)
 variance_binary_temp = []
 for row in input_reader:
@@ -47,7 +47,7 @@ del output_file
 del output_writer
 
 # Continuous models
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input_Continuous.csv")
+input_file = open("D:/Input_Continuous.csv")
 input_reader = csv.reader(input_file)
 for row in input_reader:
     num_fac = len(row)-4
@@ -58,16 +58,16 @@ del input_reader
 thresholds_continuous = []
 varProD = []
 for i in range(num_fac):
-    df1 = pandas.read_csv("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Thresholds_Continuous.csv", header=None, usecols=[i])
+    df1 = pandas.read_csv("D:/Thresholds_Continuous.csv", header=None, usecols=[i])
     thresholds_continuous_temp = df1[i].values.tolist()
-    df2 = pandas.read_csv("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Variance/Var_ProD_FC_B.csv", header=None, usecols=[i])
+    df2 = pandas.read_csv("D:/Var_ProD_FC_B.csv", header=None, usecols=[i])
     varProD_temp = df2[i].values.tolist()
     thresholds_continuous.append(thresholds_continuous_temp)
     varProD.append(varProD_temp)
 
-input_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Input_Continuous.csv")
+input_file = open("D:/Input_Continuous.csv")
 input_reader = csv.reader(input_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Uncertainty/Variance_Continuous.csv", "wb")
+output_file = open("D:/Variance_Continuous.csv", "wb")
 output_writer = csv.writer(output_file)
 variance_continuous_temp = []
 for row in input_reader:
@@ -99,11 +99,11 @@ del output_file
 del output_writer
 
 # Total variance/uncertainty of each voxel
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Uncertainty/Variance_Binary.csv")
+input1_file = open("D:/Variance_Binary.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Uncertainty/Variance_Continuous.csv")
+input2_file = open("D:/Variance_Continuous.csv")
 input2_reader = csv.reader(input2_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Uncertainty/Total Variance.csv", "wb")
+output_file = open("D:/Total Variance.csv", "wb")
 output_writer = csv.writer(output_file)
 totalVariance_temp = []
 for row1, row2 in itertools.izip(input1_reader, input2_reader):
@@ -123,11 +123,11 @@ del output_file
 del output_writer
 
 # Studentized posterior probability
-input1_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Final/Posterior Probability.csv")
+input1_file = open("D:/Posterior Probability.csv")
 input1_reader = csv.reader(input1_file)
-input2_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Uncertainty/Total Variance.csv")
+input2_file = open("D:/Total Variance.csv")
 input2_reader = csv.reader(input2_file)
-output_file = open("D:/PhD-AUT/Thesis/Phase 02_Nochun/WofE/Uncertainty/Studentized Posterior Probability.csv", "wb")
+output_file = open("D:/Studentized Posterior Probability.csv", "wb")
 output_writer = csv.writer(output_file)
 row_temp = []
 for row1, row2 in itertools.izip(input1_reader, input2_reader):
