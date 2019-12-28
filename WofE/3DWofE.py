@@ -154,7 +154,7 @@ for row in input_reader:
     row_temp.append(row[1])
     row_temp.append(row[2])
     list_temp = [float(n) for n in row[3:]]
-    row_temp.append(sum(list_temp))
+    row_temp.append(prior_l+sum(list_temp))
     output_writer.writerow(row_temp)
     row_temp = []
 del input_file
