@@ -6,11 +6,11 @@
 ![Example models](https://github.com/e-farahbakhsh/3D_MPM/blob/master/Results/Example%20models.png)
 
 ## Introduction
-This repository contains the scripts which are used for 3D mineral prospectivity modeling.
+This repository contains the scripts used for 3D mineral prospectivity modeling.
 
 ## Mineral prospectivity modeling
-### Weights of Evidence (WofE)
-The scripts provided for creating posterior probability and studentized posterior probability models using the weights of evidence can be found in the WofE folder.
+### Classic and fuzzy weights of evidence
+The scripts required for creating posterior probability and studentized posterior probability models using the classic and fuzzy weights of evidence methods can be found in WofE and fuzzy WofE folders, respectively.
 
 ## References
 Bonham-Carter, G. F., Agterberg, F. P., Wright, D. F., 1989, Weights of evidence modelling: a new approach to mapping mineral potential, in: Statistical Applications in the Earth Sciences, Agterberg, F.P., Bonham-Carter, G.F. (Eds.), Geological Survey of Canada, 171–183
