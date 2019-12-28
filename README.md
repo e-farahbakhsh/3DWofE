@@ -3,7 +3,7 @@
 
 [![DOI](https://zenodo.org/badge/205634309.svg)](https://zenodo.org/badge/latestdoi/205634309)
 
-![Models](https://github.com/e-farahbakhsh/3D_MPM/blob/master/WofE/Example%20models.png)
+![Example models](https://github.com/e-farahbakhsh/3D_MPM/blob/master/WofE/Example%20models.png)
 
 ## Introduction
 This repository contains the scripts which are used for 3D mineral prospectivity modeling.
