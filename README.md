@@ -3,14 +3,14 @@
 
 [![DOI](https://zenodo.org/badge/205634309.svg)](https://zenodo.org/badge/latestdoi/205634309)
 
-![Example models](https://github.com/e-farahbakhsh/3D_MPM/blob/master/Results/Example%20models.png)
+![Example](https://github.com/e-farahbakhsh/3D_MPM/blob/master/Results/Example.png)
 
 ## Introduction
 This repository contains the scripts used for 3D mineral prospectivity modeling.
 
 ## Mineral prospectivity modeling
-### Classic and fuzzy weights of evidence
-The scripts required for creating posterior probability and studentized posterior probability models using the classic and fuzzy weights of evidence methods can be found in "WofE" and "Fuzzy WofE" folders, respectively.
+### Ordinary and fuzzy weights of evidence
+The scripts required for creating posterior probability and studentized posterior probability models using the ordinary and fuzzy weights of evidence methods can be found in "WofE" and "Fuzzy WofE" folders, respectively.
 
 ## References
 Bonham-Carter, G. F., Agterberg, F. P., Wright, D. F., 1989, Weights of evidence modelling: a new approach to mapping mineral potential, in: Statistical Applications in the Earth Sciences, Agterberg, F.P., Bonham-Carter, G.F. (Eds.), Geological Survey of Canada, 171–183
@@ -21,6 +21,4 @@ Carranza, E. J. M., 2004, Weights of evidence modeling of mineral potential: a c
 
 Cheng, Q., Agterberg, F. P., 1999, Fuzzy weights of evidence method and its application in mineral potential mapping, Natural Resources Research, 8, 27–35
 
-Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., 2019a, Application of three-dimensional weights of evidence in modeling concealed ore deposits: Case study of a porphyry Cu deposit in the Urmia-Dokhtar magmatic belt of Iran [Under Review]
-
-Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., 2019b, Extending the weights of evidence method for integrating geological, structural and geochemical data: Case study of a porphyry Cu deposit in Iran [Under Review]
+Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., 2020, Three-dimensional weights of evidence for modeling a concealed porphyry Cu deposit in Iran [Under Review]
