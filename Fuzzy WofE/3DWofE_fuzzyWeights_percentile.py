@@ -596,14 +596,17 @@ for i in range(num_fac):
         for m in range(num_class):
             if contrast1_temp[m] != "Null":
                 contrast2_temp.append(contrast1_temp[m])
-        if len(contrast2_temp) != 1:
-            par_s = (2*math.log(99))/(max(contrast2_temp)-min(contrast2_temp))
-            par_i = (max(contrast2_temp)+min(contrast2_temp))/2
+                if len(contrast2_temp) != 1:
+            # Logistic function
+            # par_s = (2*math.log(99))/(max(contrast2_temp)-min(contrast2_temp))
+            # par_i = (max(contrast2_temp)+min(contrast2_temp))/2
             for n in range(num_class):
                 if contrast1_temp[n] == "Null":
                     fuzzyContrast_temp.append(0.5)
                 else:
-                    fuzzyContrast_temp.append(1/(1+math.exp(-1*par_s*(float(contrast1_temp[n])-par_i))))
+                    # Logistic function
+                    # fuzzyContrast_temp.append(1/(1+math.exp(-1*par_s*(float(contrast1_temp[n])-par_i))))
+                    fuzzyContrast_temp.append((float(contrast1_temp[n])-min(contrast2_temp))/(max(contrast2_temp)-min(contrast2_temp)))
             fuzzyContrast.append(fuzzyContrast_temp)
             contrast1_temp = []
             fuzzyContrast_temp = []
