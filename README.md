@@ -1,15 +1,14 @@
 # 3D_WofE
-3D Mineral Prospectivity Modeling
+3D Weights of Evidence
 
 [![DOI](https://zenodo.org/badge/205634309.svg)](https://zenodo.org/badge/latestdoi/205634309)
 
 ![Example](https://github.com/e-farahbakhsh/3D_WofE/blob/master/Results/Model.png)
 
 ## Introduction
-This repository contains the scripts used for 3D mineral prospectivity modeling.
+This repository contains the scripts required for 3D mineral prospectivity modeling using the weights of evidence method.
 
-## Mineral prospectivity modeling
-### Ordinary and fuzzy weights of evidence
+## Ordinary and fuzzy weights of evidence
 The scripts required for creating posterior probability and studentized posterior probability models using the ordinary and fuzzy weights of evidence methods can be found in "WofE" and "Fuzzy WofE" folders, respectively.
 
 ## References
@@ -21,6 +20,4 @@ Carranza, E. J. M., 2004, Weights of evidence modeling of mineral potential: a c
 
 Cheng, Q., Agterberg, F. P., 1999, Fuzzy weights of evidence method and its application in mineral potential mapping, Natural Resources Research, 8, 27–35
 
-Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., 2020a, Three-dimensional weights of evidence modeling of a concealed porphyry Cu deposit in Iran [Under Review]
-
-Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., 2020b, Integrated use of the weights of evidence method and geostatistics for 3D modeling of a porphyry Cu deposit [Under Review]
+Farahbakhsh, E., Hezarkhani, A., Eslamkish, T., Bahroudi, A., Chandra, R., 2020, Three-dimensional weights of evidence modeling of a concealed porphyry Cu deposit in Iran, Geochemistry: Exploration, Environment, Analysis [Accepted]
