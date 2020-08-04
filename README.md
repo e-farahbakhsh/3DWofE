@@ -1,15 +1,14 @@
 # 3D_WofE
-3D Mineral Prospectivity Modeling
+3D Weights of Evidence
 
 [![DOI](https://zenodo.org/badge/205634309.svg)](https://zenodo.org/badge/latestdoi/205634309)
 
 ![Example](https://github.com/e-farahbakhsh/3D_WofE/blob/master/Results/Model.png)
 
 ## Introduction
-This repository contains the scripts used for 3D mineral prospectivity modeling.
+This repository contains the scripts required for 3D mineral prospectivity modeling using the weights of evidence method.
 
-## Mineral prospectivity modeling
-### Ordinary and fuzzy weights of evidence
+## Ordinary and fuzzy weights of evidence
 The scripts required for creating posterior probability and studentized posterior probability models using the ordinary and fuzzy weights of evidence methods can be found in "WofE" and "Fuzzy WofE" folders, respectively.
 
 ## References
