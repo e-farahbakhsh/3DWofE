@@ -1,4 +1,4 @@
-# 3D_WofE
+# 3DWofE
 3D Weights of Evidence
 
 [![DOI](https://zenodo.org/badge/205634309.svg)](https://zenodo.org/badge/latestdoi/205634309)
